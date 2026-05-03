@@ -1,0 +1,219 @@
+/* src/styles.css */
+
+/* Variables CSS - facilitan el mantenimiento de colores */
+:root {
+  --bg: #f7f7fb;
+  --card: #ffffff;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --muted: #6b7280;
+  --text: #1f2937;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Contenedor principal de la app */
+.app {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Título principal */
+.app h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), #c026d3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+}
+
+/* Tarjeta del testimonio */
+.testimonial-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Foto de perfil */
+.testimonial-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Nombre */
+.testimonial-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+/* Cargo */
+.testimonial-role {
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Texto del testimonio */
+.testimonial-text {
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* Contenedor de botones */
+.controls {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Estilos base de botones */
+.controls button {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background: white;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Hover de botones */
+.controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Botón Anterior */
+.controls button.prev:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Botón Siguiente */
+.controls button.next:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Botón Aleatorio */
+.controls button.random {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  color: white;
+}
+
+.controls button.random:hover {
+  background: linear-gradient(135deg, #db2777, #e11d48);
+  transform: translateY(-2px);
+}
+
+/* Contador */
+.counter {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  body {
+    padding: 20px;
+  }
+  
+  .app h1 {
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-photo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .testimonial-text {
+    font-size: 0.875rem;
+  }
+  
+  .controls button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Mejora de accesibilidad: focus visible */
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Modo oscuro (mejora opcional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f1a;
+    --card: #1e1e2e;
+    --text: #e0e0e0;
+    --muted: #a0a0b0;
+  }
+}
